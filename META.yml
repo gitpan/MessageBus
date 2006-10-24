@@ -1,0 +1,16 @@
+abstract: Lightweight publish/subscribe messaging system
+author: Audrey Tang <cpan@audreyt.org>
+distribution_type: module
+generated_by: Module::Install version 0.64
+license: MIT
+name: MessageBus
+no_index: 
+  directory: 
+    - inc
+    - t
+requires: 
+  Class::InsideOut: 0
+  DBM::Deep: 0
+  Data::UUID: 0
+  perl: 5.005
+version: 0.01
