@@ -9,8 +9,8 @@ no_index:
     - inc
     - t
 requires: 
-  Class::InsideOut: 0
+  Class::Accessor::Fast: 0
   DBM::Deep: 0
   Data::UUID: 0
   perl: 5.005
-version: 0.01
+version: 0.02

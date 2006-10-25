@@ -14,9 +14,10 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 167aa583dc20073a4521a951ea3cd51cdd23f3d2 MANIFEST
-SHA1 7ada8ae2bf14988775ccf87a212d6ea2e7480875 META.yml
-SHA1 4760e0fe1d3fb74428965670ba6f3380352cae49 Makefile.PL
+SHA1 3f177ea88eecb6b52d4603eb7e3802eba1145dbe Changes
+SHA1 e353ea724670c3dd96f856f1a1fb271e8f1a9ba0 MANIFEST
+SHA1 b76080a83923b8928ecd04c18f9d8114a379a3b0 META.yml
+SHA1 f8186d80ec01f6d603cc77424fe4b3546841c606 Makefile.PL
 SHA1 9b2f9d83bcf77860f53a0c07c90a4a59ad9f5df1 inc/Module/Install.pm
 SHA1 abe32855d75ab13747cf65765af9947b7a8c3057 inc/Module/Install/Base.pm
 SHA1 95b81d1e91bd634467bf633571eff4420e9c04eb inc/Module/Install/Can.pm
@@ -25,18 +26,18 @@ SHA1 2249171a2b72cd73ff2c0a06597d29f86e5df456 inc/Module/Install/Makefile.pm
 SHA1 381bb98ea3877bba49ae85e7a7ea130645fd3dbf inc/Module/Install/Metadata.pm
 SHA1 0c2118868ef82ac517eb6d9c3bd93e6eb9bbf83e inc/Module/Install/Win32.pm
 SHA1 e827d6d43771032fa3df35c0ad5e5698d0e54cda inc/Module/Install/WriteAll.pm
-SHA1 e84fa16dde96b3ceec462a0517a29d0835ee4bee lib/MessageBus.pm
+SHA1 7032c61fb5eb8e0cfdfbaa9611e3597a1694faa0 lib/MessageBus.pm
 SHA1 6b77118b4973eafe543a49b0bc12651a1c0ed0a9 lib/MessageBus/Cache/DBM_Deep.pm
 SHA1 6a0ef4fc693370fb9745db2e12287fd9ce0bc90a lib/MessageBus/Cache/Memcached.pm
 SHA1 9b7785b9d7c8321e34fd4dfda15e70d8990af415 lib/MessageBus/Cache/PlainHash.pm
 SHA1 96c59a51d5a029bc4458f1095c61f7598e1c6cd1 lib/MessageBus/Cacheable.pm
-SHA1 26fd53b5b3104e8bbf476f12fca849248375f741 lib/MessageBus/Pub.pm
-SHA1 1ca23c462b26f6887687864a0f3feb607c99d647 lib/MessageBus/Sub.pm
-SHA1 3e4ad2bef4c23ef69a466ab3fc2c1e462af95716 t/basic.t
+SHA1 2a6fa112883e00d185ae1b663dc897f9ed800880 lib/MessageBus/Pub.pm
+SHA1 ec3029336a45df84f1d7b8db1d12123e4cfc750c lib/MessageBus/Sub.pm
+SHA1 00bfa3443a23770b7f8d9e64a46740ba85e6fee2 t/basic.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.3 (Darwin)
 
-iD8DBQFFPp2RtLPdNzw1AaARAj/oAKCI3W8PM6Ew26OdTP7wMeGe7GQ/JwCcC5a7
-kcWQ9CG1/ZX4XGel2fJCOM8=
-=aj8Q
+iD8DBQFFPry5tLPdNzw1AaARAiUoAJ9YY13og6vtV9pXStgy3yfHt1HgUACdFotV
+h32aP9QLtYanaki9NYkxdTM=
+=icxn
 -----END PGP SIGNATURE-----

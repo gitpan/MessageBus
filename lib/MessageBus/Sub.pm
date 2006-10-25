@@ -1,41 +1,41 @@
 package MessageBus::Sub;
 
 use strict;
-use Class::InsideOut qw( public private register id );
+use base qw/Class::Accessor::Fast/;
 
-public  chan    => my %chan;
-private pubs    => my %pubs;
-private cache   => my %cache;
+__PACKAGE__->mk_accessors(qw/chan _pubs _cache/);
 
 sub new {
     my ($class, $cache, @chan) = @_;
-    my $id = id( my $self = register( bless \(my $s), shift ) );
-    $pubs{$id}  = { map { $_ => $cache->publisher_indices($_); } @chan };
-    $cache{$id} = $cache;
-    $chan{$id}  = \@chan;
+    my $pubs = { map { $_ => $cache->publisher_indices($_); } @chan };
+    my $self = bless({ chan => \@chan, _cache => $cache, _pubs => $pubs });
     return $self;
 }
 
 sub get_all {
-    my $id = id(my $self = shift);
+    my $self = shift;
+    my $pubs = $self->_pubs;
+    my $cache = $self->_cache;
     return {
         map {
-            my $orig = $pubs{$id}{$_};
-            $pubs{$id}{$_} = $cache{$id}->publisher_indices($_);
-            $_ => [$cache{$id}->get($_, $orig, $pubs{$id}{$_})];
-        } @{$chan{$id}}
+            my $orig = $pubs->{$_};
+            $pubs->{$_} = $cache->publisher_indices($_);
+            $_ => [$cache->get($_, $orig, $pubs->{$_})];
+        } @{$self->chan}
     };
 }
 
 sub get {
-    my $id   = id(my $self = shift);
-    my $chan = @_ ? shift : $chan{$id}[0];
+    my $self = shift;
+    my $pubs = $self->_pubs;
+    my $cache = $self->_cache;
+    my $chan = @_ ? shift : $self->chan->[0];
 
-    my $orig = $pubs{$id}{$chan};
-    $pubs{$id}{$chan} = $cache{$id}->publisher_indices($chan);
+    my $orig = $pubs->{$chan};
+    $pubs->{$chan} = $cache->publisher_indices($chan);
     wantarray
-        ? map {$_->[1]} $cache{$id}->get($chan, $orig, $pubs{$id}{$chan})
-        : [map {$_->[1]} $cache{$id}->get($chan, $orig, $pubs{$id}{$chan})];
+        ? map {$_->[1]} $cache->get($chan, $orig, $pubs->{$chan})
+        : [map {$_->[1]} $cache->get($chan, $orig, $pubs->{$chan})];
 }
 
 1;

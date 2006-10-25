@@ -5,13 +5,13 @@ use IO::Socket::INET;
 
 my @backends = qw(PlainHash DBM_Deep Memcached);
 
-SKIP: for (@backends) {
-    if ($_ eq 'Memcached') {
+SKIP: for my $backend (@backends) {
+    if ($backend eq 'Memcached') {
         my $sock = IO::Socket::INET->new('127.0.0.1:11211')
             or skip("Memcached not started", 6);
     }
 
-    my $bus = MessageBus->new($_);
+    my $bus = MessageBus->new($backend);
 
     my @sub; $sub[0] = $bus->subscribe;
 

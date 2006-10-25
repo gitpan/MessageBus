@@ -7,6 +7,6 @@ all_from    'lib/MessageBus.pm';
 
 requires    'DBM::Deep';
 requires    'Data::UUID';
-requires    'Class::InsideOut';
+requires    'Class::Accessor::Fast';
 
 sign; WriteAll;

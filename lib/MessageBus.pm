@@ -1,35 +1,35 @@
 package MessageBus;
-$MessageBus::VERSION = '0.01';
+$MessageBus::VERSION = '0.02';
 
 use 5.005;
 use strict;
-use Class::InsideOut qw( public private register id );
 use MessageBus::Pub;
 use MessageBus::Sub;
+use base qw/Class::Accessor::Fast/;
 
-private cache  => my %cache;
+__PACKAGE__->mk_accessors(qw/_cache/);
 
 sub new {
-    my $id = id( my $self = register( bless \(my $s), shift ) );
+    my $self = bless {}, shift;
 
     my $backend = shift || 'PlainHash';
 
     local $@;
-    eval { require "MessageBus/Cache/$_.pm" }
-        or die "Cannot find backend module: MessageBus::Cache::$_";
+    eval { require "MessageBus/Cache/$backend.pm" }
+        or die "Cannot load backend module: MessageBus::Cache::$backend: $@";
 
-    $cache{$id} = "MessageBus::Cache::$_"->new(@_);
+    $self->_cache("MessageBus::Cache::$backend"->new(@_));
     return $self;
 }
 
 sub publish {
-    my $id   = id(my $self = shift);
-    MessageBus::Pub->new($cache{$id}, @_ ? @_ : '');
+    my $self = shift;
+    MessageBus::Pub->new($self->_cache, @_ ? @_ : '');
 }
 
 sub subscribe {
-    my $id   = id(my $self = shift);
-    MessageBus::Sub->new($cache{$id}, @_ ? @_ : '');
+    my $self = shift;
+    MessageBus::Sub->new($self->_cache, @_ ? @_ : '');
 }
 
 1;
