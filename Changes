@@ -1,3 +1,9 @@
+[Changes for 0.04 - 2006-10-24]
+
+* Expose ->lock, ->unlock, ->fetch, ->store APIs into the MessageBus object.
+* Implement ->lock and ->unlock methods for non-Memcached backends.
+* The tests are no longer entirely skipped when memcached is not running.
+
 [Changes for 0.03 - 2006-10-24]
 
 * New backend: JiftyDBI.

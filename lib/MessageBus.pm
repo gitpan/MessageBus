@@ -1,5 +1,5 @@
 package MessageBus;
-$MessageBus::VERSION = '0.03';
+$MessageBus::VERSION = '0.04';
 
 use 5.005;
 use strict;
@@ -31,6 +31,11 @@ sub subscribe {
     my $self = shift;
     MessageBus::Sub->new($self->_cache, @_ ? @_ : '');
 }
+
+sub fetch   { my $self = shift; $self->_cache->fetch(@_);   }
+sub store   { my $self = shift; $self->_cache->store(@_);   }
+sub lock    { my $self = shift; $self->_cache->lock(@_);    }
+sub unlock  { my $self = shift; $self->_cache->unlock(@_);  }
 
 1;
 

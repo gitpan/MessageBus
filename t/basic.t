@@ -8,17 +8,14 @@ my @backends = qw(PlainHash);
 
 unshift @backends, 'DBM_Deep' if eval { require DBM::Deep };
 unshift @backends, 'JiftyDBI' if eval { require Jifty::DBI };
-unshift @backends, 'Memcached' if eval { require Cache::Memcached };
+unshift @backends, 'Memcached' if eval { require Cache::Memcached } and IO::Socket::INET->new('127.0.0.1:11211');
 
 plan tests => 6 * scalar @backends;
 
 SKIP: for my $backend (@backends) {
     my %init_args = ();
     diag('Testing backend '.$backend);
-    if ($backend eq 'Memcached') {
-        my $sock = IO::Socket::INET->new('127.0.0.1:11211')
-            or skip("Memcached not started", 6);
-    } elsif ($backend eq 'JiftyDBI') {
+    if ($backend eq 'JiftyDBI') {
         $init_args{db_init} = 1;
     }
 

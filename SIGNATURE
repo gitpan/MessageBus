@@ -14,9 +14,9 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 40a1a0110ca4c9a1eb1c2d43bd8c4e526a57e05e Changes
+SHA1 b227a39bf5cc19a4f0487d22d457217906960779 Changes
 SHA1 fba3b33b1987e8896c216aa2c3253bf650c847ba MANIFEST
-SHA1 7bb05fb7ddbd33f7243bd30fb8dc4410e96f5e17 META.yml
+SHA1 75c4aaaf729d81eeb5f0debb38a477ab3290c482 META.yml
 SHA1 f8186d80ec01f6d603cc77424fe4b3546841c606 Makefile.PL
 SHA1 9b2f9d83bcf77860f53a0c07c90a4a59ad9f5df1 inc/Module/Install.pm
 SHA1 abe32855d75ab13747cf65765af9947b7a8c3057 inc/Module/Install/Base.pm
@@ -26,7 +26,7 @@ SHA1 2249171a2b72cd73ff2c0a06597d29f86e5df456 inc/Module/Install/Makefile.pm
 SHA1 381bb98ea3877bba49ae85e7a7ea130645fd3dbf inc/Module/Install/Metadata.pm
 SHA1 0c2118868ef82ac517eb6d9c3bd93e6eb9bbf83e inc/Module/Install/Win32.pm
 SHA1 e827d6d43771032fa3df35c0ad5e5698d0e54cda inc/Module/Install/WriteAll.pm
-SHA1 f30842af8e2e3c0e8838b0d1a59a034c143a7c39 lib/MessageBus.pm
+SHA1 bf2a463debd7b42c4610af2d7d1acc337cf14554 lib/MessageBus.pm
 SHA1 876d161839e4bf1daab02920e0808d64bf960852 lib/MessageBus/Cache/DBM_Deep.pm
 SHA1 151d72684d809ffb2efc08ce7b25a0e6b718fc3a lib/MessageBus/Cache/JiftyDBI.pm
 SHA1 73a16ea6f0d3266a8b9e70b8b9836b0788d2f7cb lib/MessageBus/Cache/JiftyDBI/Stash.pm
@@ -34,14 +34,14 @@ SHA1 50aece02682ea8cf336072a8a50a5132d4b7cea2 lib/MessageBus/Cache/JiftyDBI/Stas
 SHA1 68e2b30ed0686a3b7925e5dcb3ad42dea1deeb38 lib/MessageBus/Cache/JiftyDBI/Stash/Publisher.pm
 SHA1 a8b008b7549b38f4096ad5a47481e0eee92b29c8 lib/MessageBus/Cache/Memcached.pm
 SHA1 03931fce5eb5749196f1e8f1ae0b82ade4eedf31 lib/MessageBus/Cache/PlainHash.pm
-SHA1 96c59a51d5a029bc4458f1095c61f7598e1c6cd1 lib/MessageBus/Cacheable.pm
+SHA1 8f9c53d4ad26361391235de65d2a85abc8632a20 lib/MessageBus/Cacheable.pm
 SHA1 2a6fa112883e00d185ae1b663dc897f9ed800880 lib/MessageBus/Pub.pm
 SHA1 ec3029336a45df84f1d7b8db1d12123e4cfc750c lib/MessageBus/Sub.pm
-SHA1 e5103d18b0ebd8c5e5b025b0defe72d33762d57c t/basic.t
+SHA1 0bf22c7d0501811a5d2e91fe1ea49b5239020d6f t/basic.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.3 (Darwin)
 
-iD8DBQFFPsavtLPdNzw1AaARAv4UAJ9t3r2RcmJBBGrfG/iKbWleK+87CQCfdC96
-uGBDyjxV7RWYPJnz8IYPOnQ=
-=7k+I
+iD8DBQFFPwbhtLPdNzw1AaARAvyCAJ9onZw0GnIoO2XAcHFaR1qUfiuPNACfSvOW
+Nxlh12VM4FH6wLXxC3//Kio=
+=H4Wc
 -----END PGP SIGNATURE-----

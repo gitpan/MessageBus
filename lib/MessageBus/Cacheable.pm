@@ -1,6 +1,7 @@
 package MessageBus::Cacheable;
 use strict;
 use Time::HiRes 'time';
+use File::Spec;
 
 #method fetch                (Str *@keys --> List of Pair)                   { ... }
 #method store                (Str $key, Str $val, Num $time, Num $expiry)    { ... }
@@ -33,6 +34,28 @@ sub put {
     my $index = 1 + $self->get_index($chan, $pub);
     $self->store("$chan-$pub-$index", $msg, time, $expiry);
     $self->set_index($chan, $pub, $index);
+}
+
+
+use constant LOCK => File::Spec->catdir(File::Spec->tmpdir, 'MessageBus-lock-');
+
+my %locks;
+sub lock {
+    my ($self, $chan) = @_;
+    for my $i (1..10) {
+        return if mkdir((LOCK . unpack("H*", $chan)), 0777);
+        sleep 1;
+    }
+}
+
+END {
+    rmdir(LOCK . unpack("H*", $_)) for keys %locks;
+}
+
+sub unlock {
+    my ($self, $chan) = @_;
+    rmdir(LOCK . unpack("H*", $chan));
+    delete $locks{$chan};
 }
 
 1;
