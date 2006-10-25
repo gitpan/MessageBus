@@ -32,18 +32,35 @@ sub publisher_indices {
     $$self->get("$chan#") || {};
 }
 
+sub lock {
+    my ($self, $chan) = @_;
+    for my $i (1..10) {
+        return if $$self->add("$chan#lock" => 1);
+        sleep 1;
+    }
+}
+
+sub unlock {
+    my ($self, $chan) = @_;
+    $$self->delete("$chan#lock");
+}
+
 sub add_publisher {
     my ($self, $chan, $pub) = @_;
-    my $pubs = $$self->get($chan) || {};
+    $self->lock($chan);
+    my $pubs = $$self->get("$chan#") || {};
     $pubs->{$pub} = 0;
     $$self->set("$chan#", $pubs);
+    $self->unlock($chan);
 }
 
 sub remove_publisher {
     my ($self, $chan, $pub) = @_;
-    my $pubs = $$self->get($chan) || {};
+    $self->lock($chan);
+    my $pubs = $$self->get("$chan#") || {};
     delete $pubs->{$pub};
     $$self->set("$chan#", $pubs);
+    $self->unlock($chan);
 }
 
 sub get_index {
@@ -53,7 +70,7 @@ sub get_index {
 
 sub set_index {
     my ($self, $chan, $pub, $idx) = @_;
-    my $pubs = $$self->get($chan) || {};
+    my $pubs = $$self->get("$chan#") || {};
     $pubs->{$pub} = $idx;
     $$self->set("$chan#", $pubs);
 }

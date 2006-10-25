@@ -1,5 +1,5 @@
 package MessageBus;
-$MessageBus::VERSION = '0.02';
+$MessageBus::VERSION = '0.03';
 
 use 5.005;
 use strict;

@@ -1,3 +1,4 @@
+Changes
 inc/Module/Install.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
@@ -8,12 +9,15 @@ inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/MessageBus.pm
 lib/MessageBus/Cache/DBM_Deep.pm
+lib/MessageBus/Cache/JiftyDBI.pm
+lib/MessageBus/Cache/JiftyDBI/Stash.pm
+lib/MessageBus/Cache/JiftyDBI/Stash/Item.pm
+lib/MessageBus/Cache/JiftyDBI/Stash/Publisher.pm
 lib/MessageBus/Cache/Memcached.pm
 lib/MessageBus/Cache/PlainHash.pm
 lib/MessageBus/Cacheable.pm
 lib/MessageBus/Pub.pm
 lib/MessageBus/Sub.pm
-Changes
 Makefile.PL
 MANIFEST			This list of files
 META.yml

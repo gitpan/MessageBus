@@ -33,14 +33,14 @@ sub publisher_indices {
 
 sub add_publisher {
     my ($self, $chan, $pub) = @_;
-    my $pubs = $$self->get($chan) || {};
+    my $pubs = { %{ $$self->get("$chan#") || {} } };
     $pubs->{$pub} = 0;
     $$self->put("$chan#", $pubs);
 }
 
 sub remove_publisher {
     my ($self, $chan, $pub) = @_;
-    my $pubs = $$self->get($chan) || {};
+    my $pubs = { %{ $$self->get("$chan#") || {} } };
     delete $pubs->{$pub};
     $$self->put("$chan#", $pubs);
 }
@@ -52,7 +52,7 @@ sub get_index {
 
 sub set_index {
     my ($self, $chan, $pub, $idx) = @_;
-    my $pubs = $$self->get($chan) || {};
+    my $pubs = { %{ $$self->get("$chan#") || {} } };
     $pubs->{$pub} = $idx;
     $$self->put("$chan#", $pubs);
 }

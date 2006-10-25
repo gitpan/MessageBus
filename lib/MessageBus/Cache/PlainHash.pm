@@ -17,8 +17,8 @@ sub store {
 }
 
 sub publisher_indices {
-    my ($self, $chan) = @_;
-    +{%{$cache{$chan}||{}}};
+    my ( $self, $chan ) = @_;
+    +{ %{ $cache{$chan} || {} } };
 }
 
 sub add_publisher {
